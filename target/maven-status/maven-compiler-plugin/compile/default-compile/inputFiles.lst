@@ -1,0 +1,12 @@
+D:\springBootJPA\src\main\java\com\spring\dto\StudentDTO.java
+D:\springBootJPA\src\main\java\com\spring\repo\StudentRepo.java
+D:\springBootJPA\src\main\java\com\spring\service\StudentService.java
+D:\springBootJPA\src\main\java\com\spring\dto\TeacherDTO.java
+D:\springBootJPA\src\main\java\com\spring\repo\TeacherRepo.java
+D:\springBootJPA\src\main\java\com\spring\controller\StudentController.java
+D:\springBootJPA\src\main\java\com\spring\service\TeacherService.java
+D:\springBootJPA\src\main\java\com\spring\controller\TeacherController.java
+D:\springBootJPA\src\main\java\com\spring\ApplicationRunner.java
+D:\springBootJPA\src\main\java\com\spring\entity\TeacherEntity.java
+D:\springBootJPA\src\main\java\com\spring\entity\StudentEntity.java
+D:\springBootJPA\src\main\java\com\spring\rest\controller\BootRestController.java

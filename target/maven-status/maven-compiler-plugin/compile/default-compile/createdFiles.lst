@@ -1,0 +1,12 @@
+com\spring\dto\TeacherDTO.class
+com\spring\repo\TeacherRepo.class
+com\spring\service\StudentService.class
+com\spring\service\TeacherService.class
+com\spring\controller\TeacherController.class
+com\spring\repo\StudentRepo.class
+com\spring\entity\TeacherEntity.class
+com\spring\controller\StudentController.class
+com\spring\rest\controller\BootRestController.class
+com\spring\entity\StudentEntity.class
+com\spring\ApplicationRunner.class
+com\spring\dto\StudentDTO.class
