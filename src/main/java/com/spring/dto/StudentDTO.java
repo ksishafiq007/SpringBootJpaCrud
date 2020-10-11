@@ -22,9 +22,7 @@ public class StudentDTO {
 	public StudentDTO() {
 		super();
 	}
-	
-	
-	
+			
 	public Long getStudentID() {
 		return studentID;
 	}
@@ -58,41 +56,28 @@ public class StudentDTO {
 		this.photoName = photoName;
 	}
 
-
-
 	public MultipartFile getPhoto() {
 		return photo;
 	}
-
-
 
 	public void setPhoto(MultipartFile photo) {
 		this.photo = photo;
 	}
 
-
-
 	public BufferedImage getBufferedPhoto() {
 		return bufferedPhoto;
 	}
-
-
 
 	public void setBufferedPhoto(BufferedImage bufferedPhoto) {
 		this.bufferedPhoto = bufferedPhoto;
 	}
 
-
-
 	public byte[] getImage() {
 		return image;
 	}
 
-
-
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
-
 
 }

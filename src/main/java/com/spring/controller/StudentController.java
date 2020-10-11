@@ -52,15 +52,12 @@ public class StudentController {
 		studentService.saveOrUpdateStudent(studentDTO);		
 		return "redirect:/";
 	}
-	
-	
-	
+		
 	@RequestMapping(path="/", method=RequestMethod.GET)
 	public String test(Model model) {
 		model.addAttribute("studentDTO", new StudentDTO());
 	return "home";	
 	}
-	
 	
 	@RequestMapping(path="/allStudents", method=RequestMethod.GET)
 	public String saveStudent(Model model) {
@@ -76,10 +73,8 @@ public class StudentController {
 			e.printStackTrace();
 		}
 		return "studentList";
-	}
-	
-	
-	
+	}	
+		
 	@RequestMapping(path="/student/edit/{studentID}", method=RequestMethod.GET)
 	public String editStudent(Model model, @PathVariable(value="studentID") Long studentID) {
 		try {			
@@ -89,7 +84,6 @@ public class StudentController {
 		}
 		return "home";
 	}
-
 	
 	@RequestMapping(path="/student/delete/{studentID}", method=RequestMethod.GET)
 	public String deleteStudent(Model model, @PathVariable(value="studentID") Long studentID) {
