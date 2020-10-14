@@ -22,81 +22,79 @@ import com.spring.service.StudentService;
 
 @Controller
 public class StudentController {
-	
+
 	@Autowired
 	StudentService studentService;
-	
+
 	@Autowired
 	ServletContext servletContext;
-	
-	public final String UPLOAD_DIRECTORY="D:/images";
-	
-	public boolean deletionStatus= false;
-	
-	
-	@RequestMapping(path="/saveStudent", method=RequestMethod.POST)
+
+	public final String UPLOAD_DIRECTORY = "D:/images";
+
+	public boolean deletionStatus = false;
+
+	@RequestMapping(path = "/saveStudent", method = RequestMethod.POST)
 	public String saveStudent(StudentDTO studentDTO) {
-		
-		String photoName=studentDTO.getPhoto().getOriginalFilename();
-		
-	    Path path = Paths.get(UPLOAD_DIRECTORY + File.separator + photoName );
-		
+
+		String photoName = studentDTO.getPhoto().getOriginalFilename();
+
+		Path path = Paths.get(UPLOAD_DIRECTORY + File.separator + photoName);
+
 		try {
-			Files.write(path,  studentDTO.getPhoto().getBytes());
-		} catch (IOException e) {			
+			Files.write(path, studentDTO.getPhoto().getBytes());
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		studentDTO.setPhotoName(photoName);		
-		
-		studentService.saveOrUpdateStudent(studentDTO);		
+
+		studentDTO.setPhotoName(photoName);
+
+		studentService.saveOrUpdateStudent(studentDTO);
 		return "redirect:/";
 	}
-		
-	@RequestMapping(path="/", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String test(Model model) {
 		model.addAttribute("studentDTO", new StudentDTO());
-	return "home";	
+		return "home";
 	}
-	
-	@RequestMapping(path="/allStudents", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/allStudents", method = RequestMethod.GET)
 	public String saveStudent(Model model) {
 		try {
-			
-		model.addAttribute("students",studentService.findAllStudents());
-		//model.addAttribute("error", "Test Error");
-		if(deletionStatus) {
-			model.addAttribute("messsage","Deletion Successful.");			
-		}
-		deletionStatus=false;
-		}catch(Exception e) {
+
+			model.addAttribute("students", studentService.findAllStudents());
+			// model.addAttribute("error", "Test Error");
+			if (deletionStatus) {
+				model.addAttribute("messsage", "Deletion Successful.");
+			}
+			deletionStatus = false;
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "studentList";
-	}	
-		
-	@RequestMapping(path="/student/edit/{studentID}", method=RequestMethod.GET)
-	public String editStudent(Model model, @PathVariable(value="studentID") Long studentID) {
-		try {			
-		model.addAttribute("studentDTO",studentService.findByStudentID(studentID));
-		}catch(Exception e) {
+	}
+
+	@RequestMapping(path = "/student/edit/{studentID}", method = RequestMethod.GET)
+	public String editStudent(Model model, @PathVariable(value = "studentID") Long studentID) {
+		try {
+			model.addAttribute("studentDTO", studentService.findByStudentID(studentID));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "home";
 	}
-	
-	@RequestMapping(path="/student/delete/{studentID}", method=RequestMethod.GET)
-	public String deleteStudent(Model model, @PathVariable(value="studentID") Long studentID) {
-		try {	
-			StudentDTO dto=new StudentDTO();
-			dto.setStudentID(studentID);		
+
+	@RequestMapping(path = "/student/delete/{studentID}", method = RequestMethod.GET)
+	public String deleteStudent(Model model, @PathVariable(value = "studentID") Long studentID) {
+		try {
+			StudentDTO dto = new StudentDTO();
+			dto.setStudentID(studentID);
 			studentService.deleteStudent(dto);
-			deletionStatus= true;
-		}catch(Exception e) {
+			deletionStatus = true;
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "redirect:/allStudents";
 	}
-	
-	
+
 }

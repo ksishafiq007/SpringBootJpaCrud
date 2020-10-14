@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 @Entity
 @Table(name="teacher")
 public class TeacherEntity implements Serializable{
@@ -28,6 +30,10 @@ public class TeacherEntity implements Serializable{
 	
 	@Column(name = "email")
 	private String email;
+	
+	
+	@Column(name="teacher_photo_name")
+	private String teacherPhotoName;
 
 	public Long getTeacherID() {
 		return teacherID;
@@ -60,10 +66,14 @@ public class TeacherEntity implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
 
-	
+	public String getTeacherPhotoName() {
+		return teacherPhotoName;
+	}
+
+	public void setTeacherPhotoName(String teacherPhotoName) {
+		this.teacherPhotoName = teacherPhotoName;
+	}
 	
 
 }
